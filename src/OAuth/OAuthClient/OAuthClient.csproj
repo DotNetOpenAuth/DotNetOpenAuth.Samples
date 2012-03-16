@@ -46,8 +46,14 @@
     <Reference Include="DotNetOpenAuth.OAuth">
       <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Core.4.0.0-RC1\lib\net35-full\DotNetOpenAuth.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Common">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Common.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth.OAuth.Consumer">
       <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.0-RC1\lib\net35-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.ServiceProvider">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.ServiceProvider.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.ServiceProvider.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2">
       <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft\lib\net35-full\DotNetOpenAuth.OAuth2.dll</HintPath>
@@ -57,6 +63,9 @@
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId">
       <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Core.4.0.0-RC1\lib\net35-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenIdOAuth">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenIdOAuth.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenIdOAuth.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\..\packages\log4net.2.0.0\lib\net35-full\log4net.dll</HintPath>
@@ -117,9 +126,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DotNetOpenAuth.ApplicationBlock\InMemoryTokenManager.cs">
-      <Link>Code\InMemoryTokenManager.cs</Link>
-    </Compile>
     <Compile Include="Facebook.aspx.cs">
       <DependentUpon>Facebook.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,10 +213,6 @@
     <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DotNetOpenAuth.OpenIdOAuth\DotNetOpenAuth.OpenIdOAuth.csproj">
-      <Project>{4BFAA336-5DF3-4F27-82D3-06D13240E8AB}</Project>
-      <Name>DotNetOpenAuth.OpenIdOAuth</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DotNetOpenAuth.ApplicationBlock\DotNetOpenAuth.ApplicationBlock.csproj">
       <Project>{AA78D112-D889-414B-A7D4-467B34C7B663}</Project>
       <Name>DotNetOpenAuth.ApplicationBlock</Name>

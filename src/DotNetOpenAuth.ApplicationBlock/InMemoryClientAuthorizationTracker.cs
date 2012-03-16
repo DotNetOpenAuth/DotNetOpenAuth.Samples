@@ -15,7 +15,6 @@ namespace DotNetOpenAuth.ApplicationBlock {
 	using DotNetOpenAuth.Messaging;
 	using DotNetOpenAuth.OAuth2;
 
-#if SAMPLESONLY
 	internal class InMemoryClientAuthorizationTracker : IClientAuthorizationTracker {
 		private readonly Dictionary<int, IAuthorizationState> savedStates = new Dictionary<int, IAuthorizationState>();
 		private int stateCounter;
@@ -47,5 +46,4 @@ namespace DotNetOpenAuth.ApplicationBlock {
 			return this.savedStates[counter] = new AuthorizationState(scope);
 		}
 	}
-#endif
 }

@@ -79,8 +79,14 @@
     <Reference Include="DotNetOpenAuth.OAuth">
       <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Core.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Common">
+      <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Common.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth.OAuth.Consumer">
       <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.ServiceProvider">
+      <HintPath>..\..\packages\DotNetOpenAuth.OAuth.ServiceProvider.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.ServiceProvider.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2">
       <HintPath>..\..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
@@ -99,6 +105,9 @@
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
       <HintPath>..\..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenIdOAuth">
+      <HintPath>..\..\packages\DotNetOpenAuth.OpenIdOAuth.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenIdOAuth.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -124,19 +133,37 @@
     <Compile Include="Facebook\FacebookClient.cs" />
     <Compile Include="Facebook\FacebookGraph.cs" />
     <Compile Include="CustomExtensions\UIRequestAtRelyingPartyFactory.cs" />
-    <Compile Include="GoogleConsumer.cs" />
-    <Compile Include="InMemoryClientAuthorizationTracker.cs" />
+    <Compile Include="GoogleConsumer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InMemoryClientAuthorizationTracker.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="InMemoryTokenManager.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TokenManager.cs" />
-    <Compile Include="TwitterConsumer.cs" />
-    <Compile Include="Util.cs" />
-    <Compile Include="WindowsLiveClient.cs" />
-    <Compile Include="WindowsLiveGraph.cs" />
-    <Compile Include="YammerConsumer.cs" />
-    <Compile Include="YubikeyRelyingParty.cs" />
+    <Compile Include="TokenManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TwitterConsumer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindowsLiveClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindowsLiveGraph.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YammerConsumer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YubikeyRelyingParty.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -154,12 +181,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\DotNetOpenAuth.OpenIdOAuth\DotNetOpenAuth.OpenIdOAuth.csproj">
-      <Project>{4BFAA336-5DF3-4F27-82D3-06D13240E8AB}</Project>
-      <Name>DotNetOpenAuth.OpenIdOAuth</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
