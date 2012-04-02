@@ -39,22 +39,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth.Core">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.0.0.12084\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.Core.UI">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.UI.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.Core.UI.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.UI.4.0.0.12084\lib\net40-full\DotNetOpenAuth.Core.UI.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Core.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Core.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId.Provider">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Provider.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenId.Provider.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Provider.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OpenId.Provider.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId.Provider.UI">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Provider.UI.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenId.Provider.UI.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Provider.UI.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OpenId.Provider.UI.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OpenId.UI">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Core.UI.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OpenId.UI.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OpenId.Core.UI.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OpenId.UI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Contracts">
       <HintPath>..\..\..\packages\CodeContracts.Unofficial.1.0.0.2\lib\net35-client\Microsoft.Contracts.dll</HintPath>

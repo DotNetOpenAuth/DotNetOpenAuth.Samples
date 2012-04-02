@@ -38,16 +38,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth.Core">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.0.0.12084\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth.Common">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Common.4.0.0-RC1\lib\net40-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Common.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft2\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2.ResourceServer">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.ResourceServer.0.23.0-draft\lib\net40-full\DotNetOpenAuth.OAuth2.ResourceServer.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.ResourceServer.0.23.0-draft2\lib\net40-full\DotNetOpenAuth.OAuth2.ResourceServer.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
