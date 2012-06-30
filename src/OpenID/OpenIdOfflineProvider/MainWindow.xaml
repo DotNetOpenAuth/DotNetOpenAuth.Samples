@@ -1,0 +1,34 @@
+﻿<Window x:Class="DotNetOpenAuth.OpenIdOfflineProvider.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="DotNetOpenAuth Offline OpenID Provider" Height="289" Width="493">
+	<Grid Margin="4">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0">OP Identifier</Label>
+		<Label Grid.Column="1" Grid.Row="0" Name="opIdentifierLabel" ToolTip="Click to copy URI to clipboard" MouseDown="opIdentifierLabel_MouseDown" />
+		<Label Grid.Row="1">checkid requests</Label>
+		<ComboBox Grid.Column="1" Grid.Row="1" Name="checkidRequestList" SelectedIndex="0">
+			<ComboBoxItem>Auto respond: Yes</ComboBoxItem>
+			<ComboBoxItem>Auto respond: No</ComboBoxItem>
+			<ComboBoxItem>Intercept</ComboBoxItem>
+		</ComboBox>
+		<Expander Grid.Row="2" Grid.ColumnSpan="2" Header="Advanced options">
+			<StackPanel Margin="3">
+				<CheckBox Name="directedIdentityTrailingPeriodsCheckbox">Directed identity uses trailing periods in path</CheckBox>
+				<CheckBox Name="capitalizedHostName">Directed identity uses capitalized host name in claimed identifier</CheckBox>
+			</StackPanel>
+		</Expander>
+		<TextBox Height="auto" Margin="0,8,0,0" Grid.Row="3" Grid.ColumnSpan="2" Name="logBox" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
+		<Button Grid.Row="4" Grid.ColumnSpan="2" Name="clearLogButton" Click="ClearLogButton_Click">Clear log</Button>
+	</Grid>
+</Window>
