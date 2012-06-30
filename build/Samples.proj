@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- Properties that must be set for these targets to function:
+	        $(BranchName): The name of the branch being built.  Used to determine the web subdirectory for publishing.
+          
+          For creating web sites:
+          $(PublishSamplesWebSiteName): The name of the web site under which the sample web applications will be created/deleted.
+
+          For creating or publishing to web sites:
+          $(SampleWebRoot): the full physical path to where samples should be copied to, excluding $(BranchName)
+	-->
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.props))\EnlistmentInfo.props" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.props))' != '' " />
+	<Import Project="$(MSBuildProjectDirectory)\..\tools\DotNetOpenAuth.automated.props"/>
+
+	<ItemGroup>
+		<SampleProjects Include="**\*.csproj;**\*.vbproj" />
+		<SampleSites Include="InfoCardRelyingParty" />
+
+		<ProjectsToClean Include="@(SampleProjects)" />
+		<ProjectsToClean Include="$(SolutionPath)">
+			<Targets>@(SampleSites->'%(Identity):Clean')</Targets>
+		</ProjectsToClean>
+
+		<_SampleWebConfigs Include="$(ProjectRoot)samples\*\web.config" />
+		<PublishableWebSamples Include="@(_SampleWebConfigs->'%(RootDir)%(Directory)')" />
+	</ItemGroup>
+
+	<Target Name="Build" DependsOnTargets="SkipVerification">
+		<ItemGroup>
+			<SampleProjectsToBuild Include="@(SampleProjects)" />
+			<SampleProjectsToBuild Include="$(SolutionPath)">
+				<Targets>%(SampleSites.Identity)</Targets>
+			</SampleProjectsToBuild>
+		</ItemGroup>
+
+		<MSBuild Projects="@(SampleProjectsToBuild)" Targets="%(SampleProjectsToBuild.Targets)" BuildInParallel="$(BuildInParallel)" />
+	</Target>
+
+	<Target Name="Prepare">
+		<Error Text="The BranchName property must be set." Condition=" '$(BranchName)' == '' " />
+		<Error Text="The SampleWebRoot property must be set." Condition=" '$(SampleWebRoot)' == '' " />
+		<PropertyGroup>
+			<PublishSamplesWebSiteVirtualPath>/$(BranchName)</PublishSamplesWebSiteVirtualPath>
+		</PropertyGroup>
+
+		<!-- Trim the trailing slash on the web sample paths so we can just get the leaf directory name. -->
+		<Trim
+			Inputs="@(PublishableWebSamples)"
+			EndCharacters="\">
+			<Output TaskParameter="Outputs" ItemName="_PublishableWebSamplesNoTrailingSlash" />
+		</Trim>
+
+		<ItemGroup>
+			<PublishableWebSamplesVirtualPaths Include="@(_PublishableWebSamplesNoTrailingSlash->'$(PublishSamplesWebSiteVirtualPath)/%(Filename)')" />
+			<PublishableWebSamplesPhysicalPaths Include="@(_PublishableWebSamplesNoTrailingSlash->'$(SampleWebRoot)\$(BranchName)\%(Filename)')" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="PrepareForPublish" DependsOnTargets="Build">
+		<PropertyGroup>
+			<SamplesZip>$(DropDirectoryNoSlash)-samples$(ZipFormat)</SamplesZip>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<SampleSources Include="$(ProjectRoot)samples\**\*" />
+		</ItemGroup>
+
+		<FilterItems
+			InputItems="@(SampleSources)"
+			StartsWithAny="@(PublishableWebSamples)">
+			<Output TaskParameter="FilteredItems" ItemName="PublishableWebSampleSources" />
+		</FilterItems>
+	</Target>
+
+	<Target Name="DeployableArchive"
+					DependsOnTargets="PrepareForPublish"
+					Inputs="@(PublishableWebSampleSources)"
+					Outputs="$(SamplesZip)">
+		<Delete Files="$(SamplesZip)" />
+		<AddFilesTo7Zip
+			Files="@(PublishableWebSampleSources)"
+			ZipFileName="$(SamplesZip)"
+			WorkingDirectory="$(ProjectRoot)samples\"
+			ToolPath="$(Zip7ToolPath)" />
+	</Target>
+
+	<Target Name="Publish"
+					DependsOnTargets="DeployableArchive" />
+
+	<Target Name="CreateSitesOnIis" DependsOnTargets="Prepare">
+		<Error Text="The PublishSamplesWebSiteName property must be set." Condition=" '$(PublishSamplesWebSiteName)' == '' "/>
+		<Error Text="The SampleWebRoot property must be set." Condition=" '$(SampleWebRoot)' == '' " />
+		<CreateWebApplication
+			WebSiteName="$(PublishSamplesWebSiteName)"
+			PhysicalPaths="@(PublishableWebSamplesPhysicalPaths)"
+			VirtualPaths="@(PublishableWebSamplesVirtualPaths)"
+			/>
+	</Target>
+
+	<Target Name="DeleteSitesOnIis" DependsOnTargets="Prepare">
+		<Error Text="The PublishSamplesWebSiteName property must be set." Condition=" '$(PublishSamplesWebSiteName)' == '' "/>
+		<DeleteWebApplication
+			WebSiteName="$(PublishSamplesWebSiteName)"
+			VirtualPaths="@(PublishableWebSamplesVirtualPaths)"
+			/>
+	</Target>
+
+	<Import Project="$(ProjectRoot)tools\DotNetOpenAuth.automated.targets"/>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.targets))\EnlistmentInfo.targets" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.targets))' != '' " />
+</Project>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.props))\EnlistmentInfo.props" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.props))' != '' " />
+	<Import Project="$(MSBuildProjectDirectory)\..\tools\DotNetOpenAuth.automated.props"/>
+
+	<Target Name="Layout">
+		<PropertyGroup>
+			<ToolsDirectoryNoSlash>$(DropsRoot)$(ProductName)-Tools-$(BuildVersion)</ToolsDirectoryNoSlash>
+			<ToolsDirectory>$(ToolsDirectoryNoSlash)\</ToolsDirectory>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<ToolProjects Include="$(ProjectRoot)Samples\OpenIdOfflineProvider\OpenIdOfflineProvider.csproj">
+				<Targets>Sign</Targets>
+			</ToolProjects>
+		</ItemGroup>
+
+		<MSBuild Projects="@(ToolProjects)" Targets="%(ToolProjects.Targets);BuiltProjectOutputGroupDependencies" BuildInParallel="$(BuildInParallel)">
+			<Output TaskParameter="TargetOutputs" ItemName="ToolProjectsOutputs"/>
+		</MSBuild>
+
+		<ItemGroup>
+			<!-- Exclude the un-unified assemblies. -->
+			<OfflineProvider Include="@(ToolProjectsOutputs)" 
+											 Condition=" '%(ToolProjectsOutputs.CopyLocal)' != 'false' "
+											 Exclude="
+											 $(OutputPath)$(ProductName).dll;
+											 $(OutputPath)$(SignedSubPath)$(ProductName).dll;
+											 $(ProjectRoot)lib\Microsoft.Contracts.dll;
+											 $(OutputPath)System.Web.Mvc.dll;
+											 " />
+			
+			<!-- add the PDBs -->
+			<OfflineProvider Include="@(OfflineProvider->'%(SymbolPath)')" />
+			<OfflineProviderTargets Include="
+											 @(OfflineProvider->'$(ToolsDirectory)%(CultureDir)%(FileName)%(Extension)')"/>
+
+			<AllToolSources Include="@(OfflineProvider)" />
+			<AllToolTargets Include="@(OfflineProviderTargets)" />
+		</ItemGroup>
+
+		<MakeDir Directories="@(ToolsDirectory)" />
+		<Copy SourceFiles="@(AllToolSources)" DestinationFiles="@(AllToolTargets)" SkipUnchangedFiles="true" />
+
+		<!-- remove files that shouldn't be in the directory (perhaps from a previous version). -->
+		<Purge Directories="$(ToolsDirectory)" IntendedFiles="@(AllToolTargets)" />
+	</Target>
+
+	<Target Name="Build" DependsOnTargets="Layout" Returns="@(RedistributableFiles)">
+		<ItemGroup>
+			<ToolsZip Include="$(ToolsDirectoryNoSlash).zip" />
+			<ToolsZip Include="$(ToolsDirectoryNoSlash).7z" />
+			<RedistributableFiles Include="@(ToolsZip)">
+				<Package>DotNetOpenAuth-Tools</Package>
+				<Platform>.NET $(TargetFrameworkVersion)</Platform>
+			</RedistributableFiles>
+		</ItemGroup>
+
+		<Delete Files="@(ToolsZip)" />
+		<AddFilesTo7Zip
+			ZipFileName="%(ToolsZip.Identity)"
+			Files="@(AllToolTargets)"
+			WorkingDirectory="$(ToolsDirectory)"
+			ToolPath="$(Zip7ToolPath)" />
+	</Target>
+
+	<Import Project="$(ProjectRoot)tools\DotNetOpenAuth.automated.targets"/>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.targets))\EnlistmentInfo.targets" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), EnlistmentInfo.targets))' != '' " />
+</Project>
