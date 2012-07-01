@@ -17,6 +17,16 @@ namespace OpenIdProviderMvc.Controllers {
 	public class OpenIdController : Controller {
 		internal static OpenIdProvider OpenIdProvider = new OpenIdProvider();
 
+		public OpenIdController()
+			: this(null) {
+		}
+
+		public OpenIdController(IFormsAuthentication formsAuthentication) {
+			this.FormsAuth = formsAuthentication ?? new FormsAuthenticationService();
+		}
+
+		public IFormsAuthentication FormsAuth { get; private set; }
+
 		[ValidateInput(false)]
 		public ActionResult Provider() {
 			IRequest request = OpenIdProvider.GetRequest();
@@ -28,6 +38,29 @@ namespace OpenIdProviderMvc.Controllers {
 
 				// This is apparently one that the host (the web site itself) has to respond to.
 				ProviderEndpoint.PendingRequest = (IHostProcessedRequest)request;
+
+				// If PAPE requires that the user has logged in recently, we may be required to challenge the user to log in.
+				var papeRequest = ProviderEndpoint.PendingRequest.GetExtension<PolicyRequest>();
+				if (papeRequest != null && papeRequest.MaximumAuthenticationAge.HasValue) {
+					TimeSpan timeSinceLogin = DateTime.UtcNow - this.FormsAuth.SignedInTimestampUtc.Value;
+					if (timeSinceLogin > papeRequest.MaximumAuthenticationAge.Value) {
+						// The RP wants the user to have logged in more recently than he has.  
+						// We'll have to redirect the user to a login screen.
+						return this.RedirectToAction("LogOn", "Account", new { returnUrl = this.Url.Action("ProcessAuthRequest") });
+					}
+				}
+
+				return this.ProcessAuthRequest();
+			} else {
+				// No OpenID request was recognized.  This may be a user that stumbled on the OP Endpoint.  
+				return this.View();
+			}
+		}
+
+		public ActionResult ProcessAuthRequest() {
+			if (ProviderEndpoint.PendingRequest == null) {
+				return this.RedirectToAction("Index", "Home");
+			}
 
 				// Try responding immediately if possible.
 				ActionResult response;
@@ -42,10 +75,6 @@ namespace OpenIdProviderMvc.Controllers {
 				}
 
 				return this.RedirectToAction("AskUser");
-			} else {
-				// No OpenID request was recognized.  This may be a user that stumbled on the OP Endpoint.  
-				return this.View();
-			}
 		}
 
 		/// <summary>
@@ -132,6 +161,17 @@ namespace OpenIdProviderMvc.Controllers {
 					}
 
 					pendingRequest.AddResponseExtension(claimsResponse);
+				}
+
+				// Look for PAPE requests.
+				var papeRequest = pendingRequest.GetExtension<PolicyRequest>();
+				if (papeRequest != null) {
+					var papeResponse = new PolicyResponse();
+					if (papeRequest.MaximumAuthenticationAge.HasValue) {
+						papeResponse.AuthenticationTimeUtc = this.FormsAuth.SignedInTimestampUtc;
+					}
+
+					pendingRequest.AddResponseExtension(papeResponse);
 				}
 			}
 

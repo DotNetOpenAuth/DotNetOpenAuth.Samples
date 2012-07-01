@@ -1,15 +1,13 @@
 ﻿namespace DotNetOpenAuth.Samples.OAuthConsumerWpf {
-
     using System.Windows;
-	using DotNetOpenAuth.OAuth2;
+
+    using DotNetOpenAuth.OAuth2;
 
 	/// <summary>
 	/// Interaction logic for Authorize2.xaml
 	/// </summary>
 	public partial class Authorize2 : Window {
 		internal Authorize2(UserAgentClient client) {
-            //System.Diagnostics.Contracts.Contract.Requires(client != null, "client");
-
 			this.InitializeComponent();
 			this.clientAuthorizationView.Client = client;
 		}

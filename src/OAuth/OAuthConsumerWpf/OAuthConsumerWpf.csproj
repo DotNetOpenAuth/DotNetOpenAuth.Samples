@@ -70,25 +70,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth.Core">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.0.0.12084\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.Core.4.1.0.12182\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Core.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Core.4.1.0.12182\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Common">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Common.4.1.0.12182\lib\net40-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth.Consumer">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.0.12084\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.0.12182\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft2\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Core.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.AuthorizationServer">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.AuthorizationServer.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.AuthorizationServer.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2.Client">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Client.0.23.0-draft2\lib\net40-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Client.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth2.Client.UI">
-      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Client.UI.0.23.0-draft2\lib\net40-full\DotNetOpenAuth.OAuth2.Client.UI.dll</HintPath>
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.Client.UI.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.Client.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ClientAuthorization">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.ClientAuthorization.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.ClientAuthorization.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ResourceServer">
+      <HintPath>..\..\..\packages\DotNetOpenAuth.OAuth2.ResourceServer.0.25.0-draft1\lib\net40-full\DotNetOpenAuth.OAuth2.ResourceServer.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\packages\log4net.2.0.0\lib\net35-full\log4net.dll</HintPath>
+      <HintPath>..\..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Contracts">
       <HintPath>..\..\..\packages\CodeContracts.Unofficial.1.0.0.2\lib\net35-client\Microsoft.Contracts.dll</HintPath>
