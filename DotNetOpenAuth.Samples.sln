@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InfoCard", "InfoCard", "{91
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9C5ECA3F-D0ED-4C08-AED6-F7FEC7728175}"
 	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
@@ -32,26 +34,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdProviderMvc", "src\Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdProviderWebForms", "src\OpenID\OpenIdProviderWebForms\OpenIdProviderWebForms.csproj", "{2A59DE0A-B76A-4B42-9A33-04D34548353D}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OpenIdRelyingPartyClassicAsp", "src\OpenID\OpenIdRelyingPartyClassicAsp\", "{75961E32-9D00-4A1C-9F18-5EB6BE932633}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/OpenIdRelyingPartyClassicAsp"
-		Debug.AspNetCompiler.PhysicalPath = "src\OpenID\OpenIdRelyingPartyClassicAsp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\OpenIdRelyingPartyClassicAsp\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/OpenIdRelyingPartyClassicAsp"
-		Release.AspNetCompiler.PhysicalPath = "src\OpenID\OpenIdRelyingPartyClassicAsp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\OpenIdRelyingPartyClassicAsp\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "61979"
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{5197EF55-EBE8-491E-B829-26B5FAA970DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Relying Party", "Relying Party", "{41523EF4-413A-4260-9571-B87DA8C2D836}"
@@ -67,6 +49,45 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdWebRingSsoRelyingParty", "src\OpenID\OpenIdWebRingSsoRelyingParty\OpenIdWebRingSsoRelyingParty.csproj", "{1229459F-AD2B-471C-897D-A1E7D842C83A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoCardRelyingParty", "src\InfoCard\InfoCardRelyingParty\InfoCardRelyingParty.csproj", "{10C2DC8D-B859-416E-ACB0-6DB6ED2385CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{62ED19CB-52CD-4461-8944-379E5E16BDE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{28086040-CD7F-45E1-A14C-AECA6A280722}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{EE10FD11-A42F-404B-9C75-6FC4820DAB82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{1CF6B6A5-7FF3-4FED-AB97-8CBA73ECE88A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebForms", "WebForms", "{F8180339-526E-4FC7-8325-079441076069}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classic ASP", "Classic ASP", "{C2D25D8E-4DDA-49C4-8CEE-F48E963E7C18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{4F892988-051B-4C28-8886-D142E6BE9A48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebForms", "WebForms", "{D21679C5-D577-4BD7-90B9-6B67DA8B7E99}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "localhost", "http://localhost:61979", "{EFA5114E-29D8-4269-A198-FD80E37335F9}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/OpenIdRelyingPartyClassicAsp"
+		Debug.AspNetCompiler.PhysicalPath = "src\OpenID\OpenIdRelyingPartyClassicAsp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\OpenIdRelyingPartyClassicAsp\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/OpenIdRelyingPartyClassicAsp"
+		Release.AspNetCompiler.PhysicalPath = "src\OpenID\OpenIdRelyingPartyClassicAsp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\OpenIdRelyingPartyClassicAsp\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "src\OpenID\OpenIdRelyingPartyClassicAsp\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Common", "_Common", "{BD675708-DFDB-4025-9460-D28FA0486B9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,12 +150,6 @@ Global
 		{2A59DE0A-B76A-4B42-9A33-04D34548353D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A59DE0A-B76A-4B42-9A33-04D34548353D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A59DE0A-B76A-4B42-9A33-04D34548353D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.CodeAnalysis|Any CPU.ActiveCfg = Debug|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.CodeAnalysis|Any CPU.Build.0 = Debug|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{07B193F1-68AD-4E9C-98AF-BEFB5E9403CB}.CodeAnalysis|Any CPU.ActiveCfg = Release|Any CPU
 		{07B193F1-68AD-4E9C-98AF-BEFB5E9403CB}.CodeAnalysis|Any CPU.Build.0 = Release|Any CPU
 		{07B193F1-68AD-4E9C-98AF-BEFB5E9403CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -165,6 +180,12 @@ Global
 		{10C2DC8D-B859-416E-ACB0-6DB6ED2385CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10C2DC8D-B859-416E-ACB0-6DB6ED2385CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10C2DC8D-B859-416E-ACB0-6DB6ED2385CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.CodeAnalysis|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.CodeAnalysis|Any CPU.Build.0 = Debug|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA5114E-29D8-4269-A198-FD80E37335F9}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,19 +195,29 @@ Global
 		{41523EF4-413A-4260-9571-B87DA8C2D836} = {A4059F7E-8E6F-4FA2-A1D5-1B9B46C93F82}
 		{28BFDF11-06D1-4DE4-8C26-3C9A2AE8FC80} = {A4059F7E-8E6F-4FA2-A1D5-1B9B46C93F82}
 		{A0D6249D-82AB-4D10-B61F-779491BFC7B5} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
-		{6EC36418-DBC5-4AD1-A402-413604AA7A08} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
-		{E135F455-0669-49F8-9207-07FCA8C8FC79} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
-		{2BF1FFD1-607E-40D0-8AB5-EDA677EF932D} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
+		{62ED19CB-52CD-4461-8944-379E5E16BDE9} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
+		{28086040-CD7F-45E1-A14C-AECA6A280722} = {812D828E-C91A-45AB-BAE9-3FC6D9560F9F}
 		{10C2DC8D-B859-416E-ACB0-6DB6ED2385CC} = {9145144C-1192-41C9-9A6D-D8F6BFE350F2}
 		{C78E8235-1D46-43EB-A912-80B522C4E9AE} = {A0D6249D-82AB-4D10-B61F-779491BFC7B5}
 		{9529606E-AF76-4387-BFB7-3D10A5B399AA} = {A0D6249D-82AB-4D10-B61F-779491BFC7B5}
-		{AEA29D4D-396F-47F6-BC81-B58D4B855245} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
-		{2A59DE0A-B76A-4B42-9A33-04D34548353D} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
-		{5C65603B-235F-47E6-B536-06385C60DE7F} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
-		{75961E32-9D00-4A1C-9F18-5EB6BE932633} = {41523EF4-413A-4260-9571-B87DA8C2D836}
-		{07B193F1-68AD-4E9C-98AF-BEFB5E9403CB} = {41523EF4-413A-4260-9571-B87DA8C2D836}
-		{F289B925-4307-4BEC-B411-885CE70E3379} = {41523EF4-413A-4260-9571-B87DA8C2D836}
+		{6EC36418-DBC5-4AD1-A402-413604AA7A08} = {62ED19CB-52CD-4461-8944-379E5E16BDE9}
+		{2BF1FFD1-607E-40D0-8AB5-EDA677EF932D} = {28086040-CD7F-45E1-A14C-AECA6A280722}
+		{E135F455-0669-49F8-9207-07FCA8C8FC79} = {28086040-CD7F-45E1-A14C-AECA6A280722}
+		{EE10FD11-A42F-404B-9C75-6FC4820DAB82} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
+		{1CF6B6A5-7FF3-4FED-AB97-8CBA73ECE88A} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
+		{F8180339-526E-4FC7-8325-079441076069} = {5197EF55-EBE8-491E-B829-26B5FAA970DF}
+		{C2D25D8E-4DDA-49C4-8CEE-F48E963E7C18} = {41523EF4-413A-4260-9571-B87DA8C2D836}
+		{4F892988-051B-4C28-8886-D142E6BE9A48} = {41523EF4-413A-4260-9571-B87DA8C2D836}
+		{D21679C5-D577-4BD7-90B9-6B67DA8B7E99} = {41523EF4-413A-4260-9571-B87DA8C2D836}
 		{0B4EB2A8-283D-48FB-BCD0-85B8DFFE05E4} = {28BFDF11-06D1-4DE4-8C26-3C9A2AE8FC80}
 		{1229459F-AD2B-471C-897D-A1E7D842C83A} = {28BFDF11-06D1-4DE4-8C26-3C9A2AE8FC80}
+		{5C65603B-235F-47E6-B536-06385C60DE7F} = {EE10FD11-A42F-404B-9C75-6FC4820DAB82}
+		{AEA29D4D-396F-47F6-BC81-B58D4B855245} = {1CF6B6A5-7FF3-4FED-AB97-8CBA73ECE88A}
+		{2A59DE0A-B76A-4B42-9A33-04D34548353D} = {F8180339-526E-4FC7-8325-079441076069}
+		{004F005C-0070-0065-6E00-490064005700} = {C2D25D8E-4DDA-49C4-8CEE-F48E963E7C18}
+		{EFA5114E-29D8-4269-A198-FD80E37335F9} = {C2D25D8E-4DDA-49C4-8CEE-F48E963E7C18}
+		{07B193F1-68AD-4E9C-98AF-BEFB5E9403CB} = {4F892988-051B-4C28-8886-D142E6BE9A48}
+		{F289B925-4307-4BEC-B411-885CE70E3379} = {D21679C5-D577-4BD7-90B9-6B67DA8B7E99}
+		{AA78D112-D889-414B-A7D4-467B34C7B663} = {BD675708-DFDB-4025-9460-D28FA0486B9C}
 	EndGlobalSection
 EndGlobal
