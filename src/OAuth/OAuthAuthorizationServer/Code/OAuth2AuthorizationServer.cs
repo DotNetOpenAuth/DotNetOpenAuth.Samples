@@ -31,7 +31,11 @@
 
 		#region Implementation of IAuthorizationServerHost
 
-		public ICryptoKeyStore CryptoKeyStore {
+	    public AutomatedAuthorizationCheckResponse CheckAuthorizeClientCredentialsGrant(IAccessTokenRequest accessRequest) {
+	        throw new NotImplementedException();
+	    }
+
+	    public ICryptoKeyStore CryptoKeyStore {
 			get { return MvcApplication.KeyNonceStore; }
 		}
 
@@ -78,7 +82,11 @@
 			return this.IsAuthorizationValid(authorization.Scope, authorization.ClientIdentifier, authorization.UtcIssued, authorization.User);
 		}
 
-		public bool TryAuthorizeResourceOwnerCredentialGrant(string userName, string password, IAccessTokenRequest accessRequest, out string canonicalUserName) {
+	    public AutomatedUserAuthorizationCheckResponse CheckAuthorizeResourceOwnerCredentialGrant(string userName, string password, IAccessTokenRequest accessRequest) {
+	        throw new NotImplementedException();
+	    }
+
+	    public bool TryAuthorizeResourceOwnerCredentialGrant(string userName, string password, IAccessTokenRequest accessRequest, out string canonicalUserName) {
 			// This web site delegates user authentication to OpenID Providers, and as such no users have local passwords with this server.
 			throw new NotSupportedException();
 		}
