@@ -5,7 +5,7 @@
 	using System.Web;
 	using System.Web.Mvc;
 
-	[HandleError, Authorize]
+	[HandleError]
 	public class HomeController : Controller {
 		public ActionResult Index() {
 			if (Request.AcceptTypes.Contains("application/xrds+xml")) {
