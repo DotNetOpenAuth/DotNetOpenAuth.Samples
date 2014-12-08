@@ -1,4 +1,6 @@
-﻿namespace OAuthAuthorizationServer.Controllers {
+﻿using DotNetOpenAuth.OAuth2.Messages;
+
+namespace OAuthAuthorizationServer.Controllers {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -84,9 +86,11 @@
 				response = this.authorizationServer.PrepareApproveAuthorizationRequest(pendingRequest, User.Identity.Name);
 			} else {
 				response = this.authorizationServer.PrepareRejectAuthorizationRequest(pendingRequest);
-				var errorResponse = response as EndUserAuthorizationFailedResponse;
-				errorResponse.Error = "accesss_denied";  // see http://tools.ietf.org/id/draft-ietf-oauth-v2-31.html#rfc.section.4.1.2.1 for valid values
-				errorResponse.Description = "The resource owner or authorization server denied the request";
+                //var errorResponse = response as EndUserAuthorizationFailedResponse;
+                //if (errorResponse != null) {
+                //    errorResponse.Error = "accesss_denied";  // see http://tools.ietf.org/id/draft-ietf-oauth-v2-31.html#rfc.section.4.1.2.1 for valid values
+                //    errorResponse.ErrorDescription = "The resource owner or authorization server denied the request";
+                //}
 			}
 
 			return this.authorizationServer.Channel.PrepareResponse(response).AsActionResult();
