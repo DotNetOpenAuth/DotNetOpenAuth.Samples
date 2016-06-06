@@ -3,35 +3,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>
-		<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
-	</title>
-	<link href='<%= Url.Content("~/Content/Site.css") %>' rel="stylesheet" type="text/css" />
-	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href='<%= Url.Content("~/Content/bootstrap.yeti.min.css") %>' rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
-	<div class="page">
-		<div id="header">
-			<div id="title">
-				<h1>OpenID Provider MVC Application</h1>
-			</div>
-			<div id="logindisplay">
-				<% Html.RenderPartial("LogOnUserControl"); %>
-			</div>
-			<div id="menucontainer">
-				<ul id="menu">
-					<li>
-						<%= Html.ActionLink("Home", "Index", "Home")%></li>
-					<li>
-						<%= Html.ActionLink("About", "About", "Home")%></li>
-				</ul>
-			</div>
-		</div>
-		<div id="main">
-			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
-			<div id="footer">
-			</div>
-		</div>
-	</div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dnoa-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%= Url.Action("Index", "Home")%>">DotNetOpenAuth OpenID Provider MVC Application</a>
+            </div>
+            <% Html.RenderPartial("LogOnUserControl"); %>
+        </div>
+    </nav>
+    <div class="container">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
 </body>
 </html>

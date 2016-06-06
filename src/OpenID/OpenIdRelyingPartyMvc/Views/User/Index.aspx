@@ -7,6 +7,6 @@
 		<%=Session["FriendlyIdentifier"] %></b>. You have completed the OpenID login process.
 	</p>
 	<p>
-		<%=Html.ActionLink("Logout", "logout") %>
+		<%=Html.ActionLink("Logout", "logout", new {}, new {@class="btn btn-default"}) %>
 	</p>
 </asp:Content>

@@ -28,3 +28,4 @@ packages/
 _ReSharper*
 *.vs10x
 *.docstates
+/.vs

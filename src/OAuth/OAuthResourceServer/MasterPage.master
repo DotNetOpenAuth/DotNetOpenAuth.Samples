@@ -1,23 +1,28 @@
 ﻿<%@ Master Language="C#" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<script runat="server">
-
-</script>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head runat="server">
-	<title>DotNetOpenAuth OAuth 2.0 Resource Server sample</title>
-	<asp:ContentPlaceHolder ID="head" runat="server"/>
+    <title>DotNetOpenAuth OAuth 2.0 Resource Server sample</title>
+    <link href='/Content/bootstrap.yeti.min.css' rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
 <body>
-	<form id="form1" runat="server">
-	<h1>DotNetOpenAuth OAuth 2.0 Resource Server sample</h1>
-	<div>
-		<asp:ContentPlaceHolder ID="Body" runat="server">
-		</asp:ContentPlaceHolder>
-	</div>
-	</form>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dnoa-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">DotNetOpenAuth OAuth 2.0 Resource Server sample</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <asp:ContentPlaceHolder ID="Body" runat="server" />
+    </div>
 </body>
 </html>
