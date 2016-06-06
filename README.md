@@ -1,7 +1,8 @@
 DotNetOpenAuth Samples
 ========================
 
-![Build Status](https://ci.appveyor.com/api/projects/status/0xmmx1wpt3ys7oa8?svg=true)
+[![Build status](https://ci.appveyor.com/api/projects/status/0xmmx1wpt3ys7oa8?svg=true)](https://ci.appveyor.com/project/DavidChristiansen/dotnetopenauth-samples-177)
+
 
 This repository contains sample code for DotNetOpenAuth and aims to help developers toward a successful implementation.
 
